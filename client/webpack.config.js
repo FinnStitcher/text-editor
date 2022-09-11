@@ -15,9 +15,9 @@ module.exports = () => {
       install: './src/js/install.js'
     },
     output: {
-      filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
-      assetModuleFilename: 'src/assets/icons/[name].[ext]'
+      filename: '[name].bundle.js',
+      assetModuleFilename: '[name].[ext]'
     },
     plugins: [
       new HtmlWebpackPlugin({
@@ -38,7 +38,8 @@ module.exports = () => {
                 sizes: [96, 128, 192, 256, 384, 512],
                 destination: path.join('assets', 'icons')
             }
-        ]
+        ],
+        fingerprints: false
       })
     ],
     module: {

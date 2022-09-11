@@ -5,7 +5,6 @@ const { InjectManifest } = require('workbox-webpack-plugin');
 const path = require('path');
 
 // TODO: Add and configure workbox plugins for a service worker and manifest file.
-// TODO: Add CSS loaders and babel to webpack.
 
 module.exports = () => {
   return {
@@ -40,6 +39,13 @@ module.exports = () => {
             }
         ],
         fingerprints: false
+      }),
+      new InjectManifest({
+        swSrc: './src-sw.js',
+        swDest: 'service-worker.js',
+
+        // commented out because there's only one image
+        // exclude: [/\.(png|jpg|jpeg|svg|gif)/]
       })
     ],
     module: {

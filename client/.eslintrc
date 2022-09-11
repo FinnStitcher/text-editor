@@ -10,5 +10,8 @@
     "import/prefer-default-export": "off",
     "no-underscore-dangle": "off",
     "no-restricted-globals": "off"
+  },
+  "parserOptions": {
+    "ecmaVersion": 6
   }
 }

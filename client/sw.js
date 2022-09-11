@@ -19,12 +19,25 @@ const pageCache = new CacheFirst({
   ],
 });
 
+const imageCache = new CacheFirst({
+    cacheName: 'image-cache',
+    plugins: [
+        new CacehableResponsePlugin({
+            statuses: [0, 200]
+        }),
+        new ExpirationPlugin({
+            maxAgeSeconds: 30 * 24 * 60 * 60
+        })
+    ]
+});
+
 warmStrategyCache({
   urls: ['/index.html', '/'],
   strategy: pageCache,
 });
 
+// use pageCache when requests involving page navigation come in
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
-// TODO: Implement asset caching
-registerRoute();
+// use imageCache when images need to be loaded
+registerRoute(({ request }) => request.destination === 'image', imageCache);

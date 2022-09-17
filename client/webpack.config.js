@@ -24,6 +24,13 @@ module.exports = () => {
         template: './index.html',
         title: 'JATE'
       }),
+      new InjectManifest({
+        swSrc: './sw-src.js',
+        swDest: 'service-worker.js',
+
+        // don't precache images
+        exclude: [/\.(?:png|jpg|jpeg|svg|gif)/]
+      }),
       new WebpackPwaManifest({
         name: 'Just Another Text Editor',
         short_name: 'JATE',

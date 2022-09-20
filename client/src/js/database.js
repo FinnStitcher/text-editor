@@ -41,18 +41,6 @@ export const getDb = async () => {
 	const store = tx.objectStore('jate_text');
 
 	const request = store.getAll();
-	const result = await request;
-	return result;
+	// const result = await request;
+	// return result;
 };
-// export const getDb = async () => {
-//     console.log('getDb');
-
-//     const db = await openDB('jate', 1);
-//     const tx = db.transaction('jate_text', 'readonly');
-
-//     const store = tx.objectStore('jate_text');
-
-//     const request = store.getAll();
-//     const result = await request;
-//     return result;
-// };

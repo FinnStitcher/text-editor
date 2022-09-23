@@ -1,5 +1,7 @@
 import Editor from './editor';
+import './header';
 import './database';
+import './install';
 import '../css/style.css';
 
 const main = document.querySelector('#main');

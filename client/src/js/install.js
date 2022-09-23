@@ -12,4 +12,6 @@ window.addEventListener('beforeinstallprompt', event => {
 
 window.addEventListener('appinstalled', event => {
 	console.log('Application installed.', event);
+
+    butInstall.style.visibility === 'hidden';
 });
